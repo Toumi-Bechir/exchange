@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Order;
 use Illuminate\Http\Request;
+use App\Currency;
 
 class OrderController extends Controller
 {
@@ -24,7 +25,8 @@ class OrderController extends Controller
      */
     public function create()
     {
-        return view('orders/new');
+        $currency = Currency::all();
+        return view('orders/new',compact('currency'));
     }
 
     /**
